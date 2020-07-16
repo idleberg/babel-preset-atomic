@@ -7,6 +7,12 @@ This includes the babel configuration used for JavaScript packages in atom-ide-c
 npm install --save-dev babel-preset-atomic
 ```
 
+You should also install the peer dependencies:
+```
+npm install -save-dev "@babel/core"
+npm install -save-dev "@babel/cli"
+```
+
 ## Usage
 Create a `babel.config.js` file at the root of the project with the following content:
 ```js
