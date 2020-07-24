@@ -50,7 +50,7 @@ if (process.env.BABEL_KEEP_MODULES === "false" || !(process.env.BABEL_KEEP_MODUL
   plugins.push(...[
     require("@babel/plugin-transform-modules-commonjs"),
     require("@babel/plugin-syntax-dynamic-import"),
-    require("babel-plugin-add-module-exports") // atom needs this
+    require("babel-plugin-add-module-exports",{"addDefaultProperty": true}) // atom needs this
   ]);
 }
 
