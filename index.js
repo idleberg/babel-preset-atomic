@@ -41,6 +41,7 @@ if (process.env.BABEL_ENV === "development") {
   plugins.push(...[
     require("@babel/plugin-transform-modules-commonjs"),
     require("@babel/plugin-syntax-dynamic-import"),
+    require("babel-plugin-add-module-exports") // atom needs this
   ]);
 }
 
