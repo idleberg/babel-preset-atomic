@@ -23,7 +23,7 @@ let presets = [
     {
       targets: {
         electron: 5,
-        modules: keepModules
+        modules: !keepModules
       },
     },
   ],
