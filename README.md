@@ -30,6 +30,10 @@ module.exports = {
 };
 ```
 
+If you want to keep the ES modules as they are (not transforming `import` to `require`), set `BABEL_KEEP_MODULES` to `true`.
+```
+cross-env BABEL_KEEP_MODULES=true
+```
 
 ## Behind the scenes
 
