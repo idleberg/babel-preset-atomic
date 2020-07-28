@@ -2,12 +2,28 @@
 // replacing `"(@babel.*)",` with `require("$1"),`
 // replacing `module.exports = {(\s\S*)}` with `module.exports = () => {return $1}`
 
+let keepModules = false // false by default
+
+if (process.env.BABEL_ENV === "production") {
+  keepModules = true
+  console.warn("setting `BABEL_ENV` to `production` for bypassing ES6 module transformming is deprecated. Use BABEL_KEEP_MODULES=\"true\" instead.")
+}
+
+if (process.env.BABEL_ENV === "development") {
+  console.warn("setting `BABEL_ENV` to `development` for transforming ES6 modules is deprecated. Use BABEL_KEEP_MODULES=\"false\" instead.")
+}
+
+if (process.env.BABEL_KEEP_MODULES === "true") {
+  keepModules = true
+}
+
 let presets = [
   [
     require("@babel/preset-env"),
     {
       targets: {
         electron: 5,
+        modules: keepModules
       },
     },
   ],
@@ -36,23 +52,16 @@ let plugins = [
   require("@babel/plugin-proposal-json-strings"),
 ];
 
-if (process.env.BABEL_ENV === "production") {
-  console.warn("setting `BABEL_ENV` to `production` for bypassing ES6 module transformming is deprecated. Use BABEL_KEEP_MODULES=\"true\" instead.")
-}
 
-if (process.env.BABEL_ENV === "development") {
-  console.warn("setting `BABEL_ENV` to `development` for transform ES6 modules is deprecated. Use BABEL_KEEP_MODULES=\"false\" instead.")
-}
-
-// tranform modules
-if (process.env.BABEL_KEEP_MODULES === "false" || !(process.env.BABEL_KEEP_MODULES) || process.env.BABEL_ENV === "development" || !(process.env.BABEL_ENV)) {
-  // When without Rollup
+// transform modules (e.g when without Rollup)
+if (!keepModules) {
   plugins.push(...[
-    require("@babel/plugin-transform-modules-commonjs"),
-    require("@babel/plugin-syntax-dynamic-import"),
-    require("babel-plugin-add-module-exports",{"addDefaultProperty": true}) // atom needs this
+      require("@babel/plugin-transform-modules-commonjs"),
+      require("@babel/plugin-syntax-dynamic-import"),
+      require("babel-plugin-add-module-exports",{"addDefaultProperty": true}) // atom needs this
   ]);
 }
+
 
 module.exports = () => {return {
   presets: presets,
