@@ -58,7 +58,7 @@ if (!keepModules) {
   plugins.push(...[
       require("@babel/plugin-transform-modules-commonjs"),
       require("@babel/plugin-syntax-dynamic-import"),
-      require("babel-plugin-add-module-exports",{"addDefaultProperty": true}) // atom needs this
+      require("babel-plugin-add-module-exports", {addDefaultProperty: false}) // atom needs this
   ]);
 }
 
