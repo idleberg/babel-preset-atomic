@@ -1,7 +1,3 @@
-// automatically generated from babel.config.js by
-// replacing `"(@babel.*)",` with `require("$1"),`
-// replacing `module.exports = {(\s\S*)}` with `module.exports = () => {return $1}`
-
 let keepModules = false // false by default
 
 if (process.env.BABEL_ENV === "production") {
