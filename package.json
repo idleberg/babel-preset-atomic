@@ -11,6 +11,10 @@
   "repository": "https://github.com/atom-ide-community/babel",
   "license": "MIT",
   "scripts": {
+    "clean": "shx rm -rf dist",
+    "dev": "npm run clean && cross-env NODE_ENV=development cross-env BABEL_ENV=production rollup -c -w",
+    "build": "npm run clean && cross-env NODE_ENV=production cross-env BABEL_ENV=production rollup -c ",
+    "prepare": "npm run build",
     "bump": "ncu -u"
   },
   "dependencies": {
