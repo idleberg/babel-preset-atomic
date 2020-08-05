@@ -1,5 +1,36 @@
 let keepModules = false // false by default
 
+// import presets
+import presetEnv from "@babel/preset-env"
+import presetReact from "@babel/preset-react"
+import presetFlow from "@babel/preset-flow"
+
+// import plugins
+import pluginProposalFunctionBind from "@babel/plugin-proposal-function-bind"
+
+import pluginProposalExportDefaultFrom from "@babel/plugin-proposal-export-default-from"
+import pluginProposalLogicalAssignmentOperator from "@babel/plugin-proposal-logical-assignment-operators"
+import pluginProposalOptionalChaining from "@babel/plugin-proposal-optional-chaining"
+import pluginProposalPipelineOperator from "@babel/plugin-proposal-pipeline-operator"
+import pluginProposalCoalescingOperator from "@babel/plugin-proposal-nullish-coalescing-operator"
+import pluginProposalDoExpressions from "@babel/plugin-proposal-do-expressions"
+
+import pluginProposalDecorators from "@babel/plugin-proposal-decorators"
+import pluginProposalFunctionSent from "@babel/plugin-proposal-function-sent"
+import pluginProposalExportNameSpaceFrom from "@babel/plugin-proposal-export-namespace-from"
+import pluginProposalNumericSeperator from "@babel/plugin-proposal-numeric-separator"
+import pluginProposalThrowExpressions from "@babel/plugin-proposal-throw-expressions"
+
+import pluginProposalImportMeta from "@babel/plugin-syntax-import-meta"
+import pluginProposalClassProperties from "@babel/plugin-proposal-class-properties"
+import pluginProposalJSONStrings from "@babel/plugin-proposal-json-strings"
+
+// module tranformer
+import pluginTransformModulesCommonJS from "@babel/plugin-transform-modules-commonjs"
+import pluginSyntaxDynamicImport from "@babel/plugin-syntax-dynamic-import"
+import pluginAddModuleExports from "babel-plugin-add-module-exports"
+
+
 if (process.env.BABEL_ENV === "production") {
   keepModules = true
   console.warn("setting `BABEL_ENV` to `production` for bypassing ES6 module transformming is deprecated. Use BABEL_KEEP_MODULES=\"true\" instead.")
@@ -15,7 +46,7 @@ if (process.env.BABEL_KEEP_MODULES === "true") {
 
 let presets = [
   [
-    require("@babel/preset-env"),
+    presetEnv,
     {
       targets: {
         electron: 5,
@@ -23,38 +54,38 @@ let presets = [
       modules: keepModules ? "false" : "commonjs"
     },
   ],
-  require("@babel/preset-react"),
-  require("@babel/preset-flow"),
+  presetReact,
+  presetFlow
 ];
 
 let plugins = [
-  require("@babel/plugin-proposal-function-bind"),
+  pluginProposalFunctionBind,
 
-  require("@babel/plugin-proposal-export-default-from"),
-  require("@babel/plugin-proposal-logical-assignment-operators"),
-  [require("@babel/plugin-proposal-optional-chaining"), { loose: false }],
-  [require("@babel/plugin-proposal-pipeline-operator"), { proposal: "minimal" }],
-  [require("@babel/plugin-proposal-nullish-coalescing-operator"), { loose: false }],
-  require("@babel/plugin-proposal-do-expressions"),
+  pluginProposalExportDefaultFrom,
+  pluginProposalLogicalAssignmentOperator,
+  [pluginProposalOptionalChaining, { loose: false }],
+  [pluginProposalPipelineOperator, { proposal: "minimal" }],
+  [pluginProposalCoalescingOperator, { loose: false }],
+  pluginProposalDoExpressions,
 
-  [require("@babel/plugin-proposal-decorators"), { legacy: true }],
-  require("@babel/plugin-proposal-function-sent"),
-  require("@babel/plugin-proposal-export-namespace-from"),
-  require("@babel/plugin-proposal-numeric-separator"),
-  require("@babel/plugin-proposal-throw-expressions"),
+  [pluginProposalDecorators, { legacy: true }],
+  pluginProposalFunctionSent,
+  pluginProposalExportNameSpaceFrom,
+  pluginProposalNumericSeperator,
+  pluginProposalThrowExpressions,
 
-  require("@babel/plugin-syntax-import-meta"),
-  [require("@babel/plugin-proposal-class-properties"), { loose: true }],
-  require("@babel/plugin-proposal-json-strings"),
+  pluginProposalImportMeta,
+  [pluginProposalClassProperties, { loose: true }],
+  pluginProposalJSONStrings,
 ];
 
 
 // transform modules (e.g when without Rollup)
 if (!keepModules) {
   plugins.push(...[
-      require("@babel/plugin-transform-modules-commonjs"),
-      require("@babel/plugin-syntax-dynamic-import"),
-      require("babel-plugin-add-module-exports", {addDefaultProperty: false}) // atom needs this
+      pluginTransformModulesCommonJS,
+      pluginSyntaxDynamicImport,
+      [pluginAddModuleExports, {addDefaultProperty: false}] // atom needs this
   ]);
 }
 
