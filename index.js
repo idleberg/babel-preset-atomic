@@ -20,7 +20,7 @@ let presets = [
       targets: {
         electron: 5,
       },
-      modules: keepModules ? "false" : "commonjs"
+      modules: keepModules ? false : "commonjs"
     },
   ],
   require("@babel/preset-react"),
