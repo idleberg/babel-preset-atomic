@@ -48,3 +48,10 @@ It also includes all the proposal plugins such as:
 - `"@babel/plugin-proposal-export-default-from"`
 - `"@babel/plugin-proposal-export-namespace-from"`
 - ...
+
+It includes the plugins for compile time code generation:
+- `"babel-plugin-codegen"`
+- `"babel-plugin-preval"`
+
+It has the preset that automatically adds default export for older Node versions (so no `require().default` is needed).
+- `"babel-plugin-add-module-exports"`
