@@ -98,7 +98,19 @@ let presets = [
 
 Adds `default` property to `module.exports` so the ES6 module can be required in the ES6 fashion as well (by `require().default`). This is `false` by default.
 
+5) `sourceMap`
 
+The type of source map. This is set to `"inline"` by default which is required by the bundlers.
+```js
+let presets = [
+  [
+    "babel-preset-atomic",
+    {
+      sourceMap: true,
+    },
+  ],
+];
+```
 
 ## Behind the scenes
 
