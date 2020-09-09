@@ -30,9 +30,86 @@ module.exports = {
 };
 ```
 
-If you want to keep the ES modules as they are (not transforming `import` to `require`), set `BABEL_KEEP_MODULES` to `true`.
+## Options
+
+1) `keepModules`
+
+If you want to keep the ES modules as they are (not transforming `import` to `require`), set `BABEL_KEEP_MODULES` environment variable to `true`. This is useful with bundlers which need you to keep ES6 modules intact. By default the ES6 modules are transformed to ES5 (the value is `false`)
 ```
 cross-env BABEL_KEEP_MODULES=true
+```
+
+To permanently set this option, you can add it to your babel config (which disables environment variable effectiveness):
+```js
+let presets = [
+  [
+    "babel-preset-atomic",
+    {
+      keepModules: true,
+    },
+  ],
+];
+```
+
+2) `targets`
+
+To change the target of `preset-env` plugin. By default this is configured for Electron.
+```js
+let presets = [
+  [
+    "babel-preset-atomic",
+    {
+      targets: {
+        electron: 6,
+      }
+    },
+  ],
+];
+```
+
+3) `addModuleExports`:
+
+Allows to `require` a ES6 module that has exported a single thing as `default`, in a ES5 fashion without `require().default`. This is `true` by default for backward compatibility with Atom packages.
+
+```js
+let presets = [
+  [
+    "babel-preset-atomic",
+    {
+      addModuleExports: false
+    },
+  ],
+];
+```
+
+4) `addModuleExportsDefaultProperty`:
+
+```js
+let presets = [
+  [
+    "babel-preset-atomic",
+    {
+      addModuleExports: true,
+      addModuleExportsDefaultProperty: true
+    },
+  ],
+];
+```
+
+Adds `default` property to `module.exports` so the ES6 module can be required in the ES6 fashion as well (by `require().default`). This is `false` by default.
+
+5) `sourceMap`
+
+The type of source map. This is set to `"inline"` by default which is required by the bundlers.
+```js
+let presets = [
+  [
+    "babel-preset-atomic",
+    {
+      sourceMap: true,
+    },
+  ],
+];
 ```
 
 ## Behind the scenes
