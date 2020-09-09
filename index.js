@@ -1,14 +1,5 @@
 let keepModules = false // false by default
 
-if (process.env.BABEL_ENV === "production") {
-  keepModules = true
-  console.warn("setting `BABEL_ENV` to `production` for bypassing ES6 module transformming is deprecated. Use BABEL_KEEP_MODULES=\"true\" instead.")
-}
-
-if (process.env.BABEL_ENV === "development") {
-  console.warn("setting `BABEL_ENV` to `development` for transforming ES6 modules is deprecated. Use BABEL_KEEP_MODULES=\"false\" instead.")
-}
-
 if (process.env.BABEL_KEEP_MODULES === "true") {
   keepModules = true
 }
