@@ -51,6 +51,25 @@ let presets = [
 ];
 ```
 
+2) `targets`
+
+To change the target of `preset-env` plugin. By default this is configured for Electron.
+```js
+let presets = [
+  [
+    "babel-preset-atomic",
+    {
+      targets: {
+        electron: 6,
+      }
+    },
+  ],
+];
+```
+
+3)
+
+
 ## Behind the scenes
 
 It includes the following presets:
