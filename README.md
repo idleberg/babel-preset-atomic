@@ -82,6 +82,23 @@ let presets = [
 ];
 ```
 
+4) `addModuleExportsDefaultProperty`:
+
+```js
+let presets = [
+  [
+    "babel-preset-atomic",
+    {
+      addModuleExports: true,
+      addModuleExportsDefaultProperty: true
+    },
+  ],
+];
+```
+
+Adds `default` property to `module.exports` so the ES6 module can be required in the ES6 fashion as well (by `require().default`). This is `false` by default.
+
+
 
 ## Behind the scenes
 
