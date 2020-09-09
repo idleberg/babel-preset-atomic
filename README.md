@@ -67,7 +67,20 @@ let presets = [
 ];
 ```
 
-3)
+3) `addModuleExports`:
+
+Allows to `require` a ES6 module that has exported a single thing as `default`, in a ES5 fashion without `require().default`. This is `true` by default for backward compatibility with Atom packages.
+
+```js
+let presets = [
+  [
+    "babel-preset-atomic",
+    {
+      addModuleExports: false
+    },
+  ],
+];
+```
 
 
 ## Behind the scenes
