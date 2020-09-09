@@ -112,6 +112,15 @@ let presets = [
 ];
 ```
 
+6) `react`
+
+Enable `"@babel/preset-react"`. `true` by default
+
+6) `flow`
+
+Enable `"@babel/preset-flow"`. `true` by default
+
+
 ## Behind the scenes
 
 It includes the following presets:

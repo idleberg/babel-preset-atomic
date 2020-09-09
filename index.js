@@ -5,7 +5,7 @@ if (process.env.BABEL_KEEP_MODULES === "true") {
 }
 
 function handleOptions(options) {
-  let {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap } = options
+  let {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow } = options
 
   // use Electron 5 targets by default
   if (targets == null) {
@@ -34,12 +34,20 @@ function handleOptions(options) {
     sourceMap = "inline"
   }
 
-  return {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap }
+  if (react == null) {
+    react = true
+  }
+
+  if (flow == null) {
+    flow = true
+  }
+
+  return {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow }
 }
 
 module.exports = (api, options, dirname) => {
 
-  const {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap } = handleOptions(options)
+  const {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow } = handleOptions(options)
 
   let presets = [
     [
@@ -49,10 +57,19 @@ module.exports = (api, options, dirname) => {
         modules: keepModules ? false : "commonjs"
       },
     ],
-    require("@babel/preset-react"),
-    require("@babel/preset-flow"),
   ];
 
+  if (react) {
+    presets.push(...[
+      require("@babel/preset-react"),
+    ]);
+  }
+
+  if (flow) {
+    presets.push(...[
+      require("@babel/preset-flow"),
+    ]);
+  }
 
   let plugins = [
     require("@babel/plugin-proposal-function-bind"),
