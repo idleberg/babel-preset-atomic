@@ -30,9 +30,25 @@ module.exports = {
 };
 ```
 
-If you want to keep the ES modules as they are (not transforming `import` to `require`), set `BABEL_KEEP_MODULES` to `true`.
+## Options
+
+1) `keepModules`
+
+If you want to keep the ES modules as they are (not transforming `import` to `require`), set `BABEL_KEEP_MODULES` environment variable to `true`. This is useful with bundlers which need you to keep ES6 modules intact. By default the ES6 modules are transformed to ES5 (the value is `false`)
 ```
 cross-env BABEL_KEEP_MODULES=true
+```
+
+To permanently set this option, you can add it to your babel config (which disables environment variable effectiveness):
+```js
+let presets = [
+  [
+    "babel-preset-atomic",
+    {
+      keepModules: true,
+    },
+  ],
+];
 ```
 
 ## Behind the scenes
