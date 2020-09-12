@@ -114,11 +114,11 @@ let presets = [
 
 6) `react`
 
-Enable `"@babel/preset-react"`. `true` by default
+Enable `"@babel/preset-react"`. `true` by default.
 
 7) `flow`
 
-Enable `"@babel/preset-flow"`. `true` by default
+Enable `"@babel/preset-flow"`. `true` by default.
 
 
 ## Behind the scenes
