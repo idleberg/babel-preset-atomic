@@ -42,12 +42,16 @@ function handleOptions(options) {
     flow = true
   }
 
-  return {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow }
+  if (removeAllUseStrict == null) {
+    removeAllUseStrict = false
+  }
+
+  return {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict }
 }
 
 module.exports = (api, options, dirname) => {
 
-  const {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow } = handleOptions(options)
+  const {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict } = handleOptions(options)
 
   let presets = [
     [
@@ -94,6 +98,9 @@ module.exports = (api, options, dirname) => {
     // compile time code generation
     require("babel-plugin-codegen"),
     require("babel-plugin-preval"),
+
+    // not strict
+    [require("babel-plugin-transform-not-strict"), {removeAll: removeAllUseStrict}],
   ];
 
   // transform modules (e.g when without Rollup)

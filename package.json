@@ -35,7 +35,8 @@
     "@babel/preset-react": "7.10.4",
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-plugin-codegen": "^4.0.1",
-    "babel-plugin-preval": "^5.0.0"
+    "babel-plugin-preval": "^5.0.0",
+    "babel-plugin-transform-not-strict": "^0.2.0"
   },
   "peerDependencies": {
     "@babel/cli": "7.11.6",

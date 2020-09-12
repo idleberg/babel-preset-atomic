@@ -120,6 +120,9 @@ Enable `"@babel/preset-react"`. `true` by default.
 
 Enable `"@babel/preset-flow"`. `true` by default.
 
+8) `removeAllUseStrict`
+
+Remove all `'use strict'` from all files. Passed to `babel-plugin-transform-not-strict`. This is `false` by default.
 
 ## Behind the scenes
 
@@ -141,3 +144,6 @@ It includes the plugins for compile time code generation:
 
 It has the preset that automatically adds default export for older Node versions (so no `require().default` is needed).
 - `"babel-plugin-add-module-exports"`
+
+It has the plugin for removing `'use strict'`:
+- `"babel-plugin-transform-not-strict"`
