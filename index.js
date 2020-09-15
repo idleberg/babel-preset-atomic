@@ -5,7 +5,7 @@ if (process.env.BABEL_KEEP_MODULES === "true") {
 }
 
 function handleOptions(options) {
-  let {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow } = options
+  let {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict } = options
 
   // use Electron 5 targets by default
   if (targets == null) {
