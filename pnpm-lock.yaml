@@ -21,7 +21,7 @@ dependencies:
   babel-plugin-add-module-exports: 1.0.2
   babel-plugin-codegen: 4.0.1
   babel-plugin-preval: 5.0.0
-  babel-plugin-transform-not-strict: 0.2.0_@babel+core@7.11.4
+  babel-plugin-transform-not-strict: 0.2.1_@babel+core@7.11.4
 devDependencies:
   '@babel/cli': 7.10.5_@babel+core@7.11.4
   '@babel/core': 7.11.4
@@ -1536,14 +1536,14 @@ packages:
       npm: '>=6'
     resolution:
       integrity: sha512-8DqJq6/LPUjSZ0Qq6bVIFpsj2flCEE0Cbnbut9TvGU6jP9g3dOWEXtQ/sdvsA9d6souza8eNGh04WRXpuH9ThA==
-  /babel-plugin-transform-not-strict/0.2.0_@babel+core@7.11.4:
+  /babel-plugin-transform-not-strict/0.2.1_@babel+core@7.11.4:
     dependencies:
       '@babel/core': 7.11.4
     dev: false
     peerDependencies:
       '@babel/core': 7.11.6
     resolution:
-      integrity: sha512-SDA0NN6N4mhnRIObsDo2FaUFZApUSiE9o6ZvlOzErSAVQSaNCGZbPQa0RZLBycoVAvxOk/oClEGo/DSIPScAAw==
+      integrity: sha512-I0ZFdQyEa2vbbqlTt3D9idTeoSk5GGRdVi2PD4o0yNgFrTyesoS5OzPJXDDwXmXiiZWNTzQkmaybpuImCpKXDQ==
   /balanced-match/1.0.0:
     dev: true
     resolution:
@@ -4588,5 +4588,5 @@ specifiers:
   babel-plugin-add-module-exports: ^1.0.4
   babel-plugin-codegen: ^4.0.1
   babel-plugin-preval: ^5.0.0
-  babel-plugin-transform-not-strict: ^0.2.0
+  babel-plugin-transform-not-strict: ^0.2.1
   npm-check-updates: 8.1.1
