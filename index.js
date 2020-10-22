@@ -5,7 +5,7 @@ if (process.env.BABEL_KEEP_MODULES === "true") {
 }
 
 function handleOptions(options) {
-  let {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict } = options
+  let {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict,  notStrictDirectiveTriggers, notStrictCommentTriggers } = options
 
   // use Electron 5 targets by default
   if (targets == null) {
@@ -45,13 +45,19 @@ function handleOptions(options) {
   if (removeAllUseStrict == null) {
     removeAllUseStrict = false
   }
+  if (notStrictDirectiveTriggers == null) {
+    notStrictDirectiveTriggers = ['use babel']
+  }
+  if (notStrictCommentTriggers == null) {
+    notStrictCommentTriggers = ['@babel', '@flow', '* @babel', '* @flow']
+  }
 
-  return {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict }
+  return {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers }
 }
 
 module.exports = (api, options, dirname) => {
 
-  const {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict } = handleOptions(options)
+  const {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers } = handleOptions(options)
 
   let presets = [
     [
@@ -100,7 +106,7 @@ module.exports = (api, options, dirname) => {
     require("babel-plugin-preval"),
 
     // not strict
-    [require("babel-plugin-transform-not-strict"), {removeAll: removeAllUseStrict}],
+    [require("babel-plugin-transform-not-strict"), {removeAll: removeAllUseStrict, directiveTriggers: notStrictDirectiveTriggers,  commentTriggers: notStrictCommentTriggers}],
   ];
 
   // transform modules (e.g when without Rollup)

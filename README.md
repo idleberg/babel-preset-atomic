@@ -122,7 +122,11 @@ Enable `"@babel/preset-flow"`. `true` by default.
 
 8) `removeAllUseStrict`
 
-Remove all `'use strict'` from all files. Passed to `babel-plugin-transform-not-strict`. This is `false` by default.
+Remove all `'use strict'` from all files. Passed to [`babel-plugin-transform-not-strict`](https://github.com/atom-ide-community/babel-plugin-transform-not-strict#usage-remove-all). This is `false` by default.
+
+9) `notStrictDirectiveTriggers` and `notStrictCommentTriggers`
+
+These specify `"not strict"` triggers. Passed to [`babel-plugin-transform-not-strict`](https://github.com/atom-ide-community/babel-plugin-transform-not-strict#usage-extra-directive-or-comment-triggers).
 
 ## Behind the scenes
 
