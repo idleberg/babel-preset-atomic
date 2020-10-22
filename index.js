@@ -107,6 +107,9 @@ module.exports = (api, options, dirname) => {
 
     // not strict
     [require("babel-plugin-transform-not-strict"), {removeAll: removeAllUseStrict, directiveTriggers: notStrictDirectiveTriggers,  commentTriggers: notStrictCommentTriggers}],
+
+    // reserved keywords
+    require("@babel/plugin-transform-reserved-words")
   ];
 
   // transform modules (e.g when without Rollup)
