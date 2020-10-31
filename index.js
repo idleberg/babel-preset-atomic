@@ -5,7 +5,7 @@ if (process.env.BABEL_KEEP_MODULES === "true") {
 }
 
 function handleOptions(options) {
-  let {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict,  notStrictDirectiveTriggers, notStrictCommentTriggers } = options
+  let {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, removeAllUseStrict,  notStrictDirectiveTriggers, notStrictCommentTriggers } = options
 
   // use Electron 5 targets by default
   if (targets == null) {
@@ -29,11 +29,6 @@ function handleOptions(options) {
     addModuleExportsDefaultProperty = false
   }
 
-  // use inline sourceMap by default
-  if (sourceMap == null) {
-    sourceMap = "inline"
-  }
-
   if (react == null) {
     react = true
   }
@@ -52,12 +47,12 @@ function handleOptions(options) {
     notStrictCommentTriggers = ['@babel', '@flow', '* @babel', '* @flow']
   }
 
-  return {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers }
+  return {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers }
 }
 
 module.exports = (api, options, dirname) => {
 
-  const {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, sourceMap, react, flow, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers } = handleOptions(options)
+  const {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers } = handleOptions(options)
 
   let presets = [
     [
@@ -130,8 +125,6 @@ module.exports = (api, options, dirname) => {
 
   return {
     presets: presets,
-    plugins: plugins,
-    exclude: "node_modules/**",
-    sourceMap: sourceMap,
+    plugins: plugins
   }
 }
