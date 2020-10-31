@@ -2,6 +2,9 @@
   "name": "babel-preset-atomic",
   "main": "index.js",
   "version": "2.6.0",
+  "files": [
+    "./index.js"
+  ],
   "author": "Amin Yahyaabadi",
   "description": "babel configuration used in atom-ide-community",
   "keywords": [
