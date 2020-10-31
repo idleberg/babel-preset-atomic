@@ -1,7 +1,7 @@
 {
   "name": "babel-preset-atomic",
   "main": "index.js",
-  "version": "2.5.4",
+  "version": "2.6.0",
   "author": "Amin Yahyaabadi",
   "description": "babel configuration used in atom-ide-community",
   "keywords": [
