@@ -14,6 +14,10 @@
   "repository": "https://github.com/atom-ide-community/babel",
   "license": "MIT",
   "scripts": {
+    "format": "prettier --write .",
+    "test.format": "prettier . --check",
+    "lint": "eslint . --fix",
+    "test.lint": "eslint .",
     "bump": "ncu -u"
   },
   "dependencies": {
