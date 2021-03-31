@@ -101,15 +101,18 @@ module.exports = (api, options, dirname) => {
   ]
 
   if (react) {
-    presets.push(...[require("@babel/preset-react")])
+    const presetReact = require("@babel/preset-react")
+    presets.push(typeof react === "object" ? [presetReact, react] : presetReact)
   }
 
   if (flow) {
-    presets.push(...[require("@babel/preset-flow")])
+    const presetFlow = require("@babel/preset-flow")
+    presets.push(typeof flow === "object" ? [presetFlow, flow] : presetFlow)
   }
 
   if (typescript) {
-    presets.push(...[require("@babel/preset-typescript")])
+    const presetTypeScript = require("@babel/preset-typescript")
+    presets.push(typeof typescript === "object" ? [presetTypeScript, typescript] : presetTypeScript)
   }
 
   let plugins = [
