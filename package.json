@@ -20,6 +20,7 @@
     "test.lint": "eslint .",
     "dev": "cross-env NODE_ENV=development parcel watch --target main index.js",
     "build": "cross-env NODE_ENV=production parcel build --target main index.js",
+    "prepare": "npm run build",
     "bump": "ncu -u"
   },
   "prettier": "prettier-config-atomic",
