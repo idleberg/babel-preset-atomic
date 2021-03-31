@@ -1,7 +1,7 @@
 {
   "name": "babel-preset-atomic",
   "main": "index.js",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "files": [
     "./index.js"
   ],
