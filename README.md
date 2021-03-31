@@ -65,7 +65,7 @@ let presets = [
     "babel-preset-atomic",
     {
       targets: {
-        electron: 6,
+        electron: 9,
       },
     },
   ],
@@ -105,15 +105,15 @@ Adds `default` property to `module.exports` so the ES6 module can be required in
 
 6. `react`
 
-Enable `"@babel/preset-react"`. `true` by default.
+Enable `"@babel/preset-react"`. `true` by default. You can also pass an object to provide more options for this plugin.
 
 7. `flow`
 
-Enable `"@babel/preset-flow"`. `true` by default.
+Enable `"@babel/preset-flow"`. `true` by default. You can also pass an object to provide more options for this plugin.
 
 7. `typescript`
 
-Enable `"@babel/preset-typescript"`. `true` by default.
+Enable `"@babel/preset-typescript"`. `true` by default. You can also pass an object to provide more options for this plugin.
 
 9. `removeAllUseStrict`
 

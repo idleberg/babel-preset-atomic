@@ -18,10 +18,10 @@ function handleOptions(options) {
     notStrictCommentTriggers,
   } = options
 
-  // use Electron 5 targets by default
+  // use Electron 6 targets by default
   if (targets == null) {
     targets = {
-      electron: 5,
+      electron: 6,
     }
   }
 
@@ -101,15 +101,18 @@ module.exports = (api, options, dirname) => {
   ]
 
   if (react) {
-    presets.push(...[require("@babel/preset-react")])
+    const presetReact = require("@babel/preset-react")
+    presets.push(typeof react === "object" ? [presetReact, react] : presetReact)
   }
 
   if (flow) {
-    presets.push(...[require("@babel/preset-flow")])
+    const presetFlow = require("@babel/preset-flow")
+    presets.push(typeof flow === "object" ? [presetFlow, flow] : presetFlow)
   }
 
   if (typescript) {
-    presets.push(...[require("@babel/preset-typescript")])
+    const presetTypeScript = require("@babel/preset-typescript")
+    presets.push(typeof typescript === "object" ? [presetTypeScript, typescript] : presetTypeScript)
   }
 
   let plugins = [
