@@ -20,6 +20,7 @@ dependencies:
   '@babel/preset-env': 7.13.12_@babel+core@7.11.6
   '@babel/preset-flow': 7.13.13_@babel+core@7.11.6
   '@babel/preset-react': 7.13.13_@babel+core@7.11.6
+  '@babel/preset-typescript': 7.13.0_@babel+core@7.11.6
   babel-plugin-add-module-exports: 1.0.4
   babel-plugin-codegen: 4.1.4
   babel-plugin-preval: 5.0.0
@@ -810,6 +811,15 @@ packages:
       '@babel/core': ^7.0.0-0
     resolution:
       integrity: sha512-A81F9pDwyS7yM//KwbCSDqy3Uj4NMIurtplxphWxoYtNPov7cJsDkAFNNyVlIZ3jwGycVsurZ+LtOA8gZ376iQ==
+  /@babel/plugin-syntax-typescript/7.12.13_@babel+core@7.11.6:
+    dependencies:
+      '@babel/core': 7.11.6
+      '@babel/helper-plugin-utils': 7.13.0
+    dev: false
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    resolution:
+      integrity: sha512-cHP3u1JiUiG2LFDKbXnwVad81GvfyIOmCD6HIEId6ojrY0Drfy2q1jw7BwN7dE84+kTnBjLkXoL3IEy/3JPu2w==
   /@babel/plugin-transform-arrow-functions/7.13.0_@babel+core@7.11.6:
     dependencies:
       '@babel/core': 7.11.6
@@ -1154,6 +1164,17 @@ packages:
       '@babel/core': ^7.0.0-0
     resolution:
       integrity: sha512-eKv/LmUJpMnu4npgfvs3LiHhJua5fo/CysENxa45YCQXZwKnGCQKAg87bvoqSW1fFT+HA32l03Qxsm8ouTY3ZQ==
+  /@babel/plugin-transform-typescript/7.13.0_@babel+core@7.11.6:
+    dependencies:
+      '@babel/core': 7.11.6
+      '@babel/helper-create-class-features-plugin': 7.13.11_@babel+core@7.11.6
+      '@babel/helper-plugin-utils': 7.13.0
+      '@babel/plugin-syntax-typescript': 7.12.13_@babel+core@7.11.6
+    dev: false
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    resolution:
+      integrity: sha512-elQEwluzaU8R8dbVuW2Q2Y8Nznf7hnjM7+DSCd14Lo5fF63C9qNLbwZYbmZrtV9/ySpSUpkRpQXvJb6xyu4hCQ==
   /@babel/plugin-transform-unicode-escapes/7.12.13_@babel+core@7.11.6:
     dependencies:
       '@babel/core': 7.11.6
@@ -1288,6 +1309,17 @@ packages:
       '@babel/core': ^7.0.0-0
     resolution:
       integrity: sha512-gx+tDLIE06sRjKJkVtpZ/t3mzCDOnPG+ggHZG9lffUbX8+wC739x20YQc9V35Do6ZAxaUc/HhVHIiOzz5MvDmA==
+  /@babel/preset-typescript/7.13.0_@babel+core@7.11.6:
+    dependencies:
+      '@babel/core': 7.11.6
+      '@babel/helper-plugin-utils': 7.13.0
+      '@babel/helper-validator-option': 7.12.17
+      '@babel/plugin-transform-typescript': 7.13.0_@babel+core@7.11.6
+    dev: false
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    resolution:
+      integrity: sha512-LXJwxrHy0N3f6gIJlYbLta1D9BDtHpQeqwzM0LIfjDlr6UE/D5Mc7W4iDiQzaE+ks0sTjT26ArcHWnJVt0QiHw==
   /@babel/runtime/7.10.5:
     dependencies:
       regenerator-runtime: 0.13.7
@@ -5004,6 +5036,7 @@ specifiers:
   '@babel/preset-env': 7.13.12
   '@babel/preset-flow': 7.13.13
   '@babel/preset-react': 7.13.13
+  '@babel/preset-typescript': ^7.13.0
   babel-plugin-add-module-exports: ^1.0.4
   babel-plugin-codegen: ^4.1.4
   babel-plugin-preval: ^5.0.0

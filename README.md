@@ -106,11 +106,15 @@ Enable `"@babel/preset-react"`. `true` by default.
 
 Enable `"@babel/preset-flow"`. `true` by default.
 
-8) `removeAllUseStrict`
+7) `typescript`
+
+Enable `"@babel/preset-typescript"`. `true` by default.
+
+9) `removeAllUseStrict`
 
 Remove all `'use strict'` from all files. Passed to [`babel-plugin-transform-not-strict`](https://github.com/atom-ide-community/babel-plugin-transform-not-strict#usage-remove-all). This is `false` by default.
 
-9) `notStrictDirectiveTriggers` and `notStrictCommentTriggers`
+10) `notStrictDirectiveTriggers` and `notStrictCommentTriggers`
 
 These specify `"not strict"` triggers. Passed to [`babel-plugin-transform-not-strict`](https://github.com/atom-ide-community/babel-plugin-transform-not-strict#usage-extra-directive-or-comment-triggers).
 
@@ -120,6 +124,7 @@ It includes the following presets:
 - `"@babel/preset-env"` (configured for `electron`)
 - `"@babel/preset-react"`
 - `"@babel/preset-flow"`
+- `"@babel/preset-typescript"`
 
 It also includes all the proposal plugins such as:
 - `"@babel/plugin-proposal-optional-chaining"`

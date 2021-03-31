@@ -5,7 +5,7 @@ if (process.env.BABEL_KEEP_MODULES === "true") {
 }
 
 function handleOptions(options) {
-  let {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, removeAllUseStrict,  notStrictDirectiveTriggers, notStrictCommentTriggers } = options
+  let {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, typescript, removeAllUseStrict,  notStrictDirectiveTriggers, notStrictCommentTriggers } = options
 
   // use Electron 5 targets by default
   if (targets == null) {
@@ -37,6 +37,10 @@ function handleOptions(options) {
     flow = true
   }
 
+  if (typescript == null) {
+    typescript = true
+  }
+
   if (removeAllUseStrict == null) {
     removeAllUseStrict = false
   }
@@ -47,12 +51,12 @@ function handleOptions(options) {
     notStrictCommentTriggers = ['@babel', '@flow', '* @babel', '* @flow']
   }
 
-  return {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers }
+  return {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, typescript, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers }
 }
 
 module.exports = (api, options, dirname) => {
 
-  const {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers } = handleOptions(options)
+  const {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, typescript, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers } = handleOptions(options)
 
   let presets = [
     [
@@ -73,6 +77,12 @@ module.exports = (api, options, dirname) => {
   if (flow) {
     presets.push(...[
       require("@babel/preset-flow"),
+    ]);
+  }
+
+  if (typescript) {
+    presets.push(...[
+      require("@babel/preset-typescript"),
     ]);
   }
 
