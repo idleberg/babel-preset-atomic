@@ -61,8 +61,8 @@
     "npm-check-updates": "11.3.0",
     "prettier-config-atomic": "^1.0.1",
     "cross-env": "^7.0.3",
-    "npm-check-updates": "10.2.5",
-    "parcel": "^2.0.0-nightly.476"
+    "npm-check-updates": "11.3.0",
+    "parcel": "^2.0.0-nightly.632"
   },
   "targets": {
     "main": {
