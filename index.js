@@ -18,10 +18,10 @@ function handleOptions(options) {
     notStrictCommentTriggers,
   } = options
 
-  // use Electron 5 targets by default
+  // use Electron 6 targets by default
   if (targets == null) {
     targets = {
-      electron: 5,
+      electron: 6,
     }
   }
 

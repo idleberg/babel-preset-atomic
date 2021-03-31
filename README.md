@@ -65,7 +65,7 @@ let presets = [
     "babel-preset-atomic",
     {
       targets: {
-        electron: 6,
+        electron: 9,
       },
     },
   ],
