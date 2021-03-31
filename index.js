@@ -21,7 +21,7 @@ function handleOptions(options) {
   // use Electron 6 targets by default
   if (targets == null) {
     targets = {
-      electron: 6,
+      electron: 5,
     }
   }
 
