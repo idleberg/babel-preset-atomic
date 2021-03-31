@@ -5,7 +5,18 @@ if (process.env.BABEL_KEEP_MODULES === "true") {
 }
 
 function handleOptions(options) {
-  let {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, typescript, removeAllUseStrict,  notStrictDirectiveTriggers, notStrictCommentTriggers } = options
+  let {
+    targets,
+    keepModules,
+    addModuleExports,
+    addModuleExportsDefaultProperty,
+    react,
+    flow,
+    typescript,
+    removeAllUseStrict,
+    notStrictDirectiveTriggers,
+    notStrictCommentTriggers,
+  } = options
 
   // use Electron 5 targets by default
   if (targets == null) {
@@ -45,45 +56,60 @@ function handleOptions(options) {
     removeAllUseStrict = false
   }
   if (notStrictDirectiveTriggers == null) {
-    notStrictDirectiveTriggers = ['use babel']
+    notStrictDirectiveTriggers = ["use babel"]
   }
   if (notStrictCommentTriggers == null) {
-    notStrictCommentTriggers = ['@babel', '@flow', '* @babel', '* @flow']
+    notStrictCommentTriggers = ["@babel", "@flow", "* @babel", "* @flow"]
   }
 
-  return {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, typescript, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers }
+  return {
+    targets,
+    keepModules,
+    addModuleExports,
+    addModuleExportsDefaultProperty,
+    react,
+    flow,
+    typescript,
+    removeAllUseStrict,
+    notStrictDirectiveTriggers,
+    notStrictCommentTriggers,
+  }
 }
 
 module.exports = (api, options, dirname) => {
-
-  const {targets, keepModules, addModuleExports, addModuleExportsDefaultProperty, react, flow, typescript, removeAllUseStrict, notStrictDirectiveTriggers, notStrictCommentTriggers } = handleOptions(options)
+  const {
+    targets,
+    keepModules,
+    addModuleExports,
+    addModuleExportsDefaultProperty,
+    react,
+    flow,
+    typescript,
+    removeAllUseStrict,
+    notStrictDirectiveTriggers,
+    notStrictCommentTriggers,
+  } = handleOptions(options)
 
   let presets = [
     [
       require("@babel/preset-env"),
       {
         targets: targets,
-        modules: keepModules ? false : "commonjs"
+        modules: keepModules ? false : "commonjs",
       },
     ],
-  ];
+  ]
 
   if (react) {
-    presets.push(...[
-      require("@babel/preset-react"),
-    ]);
+    presets.push(...[require("@babel/preset-react")])
   }
 
   if (flow) {
-    presets.push(...[
-      require("@babel/preset-flow"),
-    ]);
+    presets.push(...[require("@babel/preset-flow")])
   }
 
   if (typescript) {
-    presets.push(...[
-      require("@babel/preset-typescript"),
-    ]);
+    presets.push(...[require("@babel/preset-typescript")])
   }
 
   let plugins = [
@@ -112,29 +138,36 @@ module.exports = (api, options, dirname) => {
     require("babel-plugin-preval"),
 
     // not strict
-    [require("babel-plugin-transform-not-strict"), {removeAll: removeAllUseStrict, directiveTriggers: notStrictDirectiveTriggers,  commentTriggers: notStrictCommentTriggers}],
+    [
+      require("babel-plugin-transform-not-strict"),
+      {
+        removeAll: removeAllUseStrict,
+        directiveTriggers: notStrictDirectiveTriggers,
+        commentTriggers: notStrictCommentTriggers,
+      },
+    ],
 
     // reserved keywords
-    require("@babel/plugin-transform-reserved-words")
-  ];
+    require("@babel/plugin-transform-reserved-words"),
+  ]
 
   // transform modules (e.g when without Rollup)
   if (!keepModules) {
-    plugins.push(...[
-        require("@babel/plugin-transform-modules-commonjs"),
-        require("@babel/plugin-syntax-dynamic-import"),
-    ]);
+    plugins.push(
+      ...[require("@babel/plugin-transform-modules-commonjs"), require("@babel/plugin-syntax-dynamic-import")]
+    )
 
     if (addModuleExports) {
-      plugins.push(...[
-        [require("babel-plugin-add-module-exports"), {addDefaultProperty: addModuleExportsDefaultProperty}] // atom needs this
-      ]);
+      plugins.push(
+        ...[
+          [require("babel-plugin-add-module-exports"), { addDefaultProperty: addModuleExportsDefaultProperty }], // atom needs this
+        ]
+      )
     }
-
   }
 
   return {
     presets: presets,
-    plugins: plugins
+    plugins: plugins,
   }
 }

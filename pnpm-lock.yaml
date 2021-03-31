@@ -29,6 +29,7 @@ devDependencies:
   '@babel/cli': 7.11.6_@babel+core@7.11.6
   '@babel/core': 7.11.6
   npm-check-updates: 11.3.0
+  prettier-config-atomic: 1.0.1
 lockfileVersion: 5.2
 packages:
   /@babel/cli/7.11.6_@babel+core@7.11.6:
@@ -4084,6 +4085,19 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
+  /prettier-config-atomic/1.0.1:
+    dependencies:
+      prettier: 2.2.1
+    dev: true
+    resolution:
+      integrity: sha512-bNW8oMkuuVZI0OXEwwfbGGpdh1Jv4QfOzSMnmueBkSCYcCAnA9iHy+wRVsAeVRZPfB1hjqB9UtxGTnrflITtyg==
+  /prettier/2.2.1:
+    dev: true
+    engines:
+      node: '>=10.13.0'
+    hasBin: true
+    resolution:
+      integrity: sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
   /process-nextick-args/2.0.1:
     dev: true
     resolution:
@@ -5042,3 +5056,4 @@ specifiers:
   babel-plugin-preval: ^5.0.0
   babel-plugin-transform-not-strict: ^0.3.1
   npm-check-updates: 11.3.0
+  prettier-config-atomic: ^1.0.1
