@@ -8,16 +8,43 @@ This includes the babel configuration used for JavaScript packages in atom-ide-c
 npm install --save-dev babel-preset-atomic
 ```
 
-You should also install the peer dependencies:
+<details>
+<summary> This package also needs `@babel/core` and/or `@babel/cli`. </summary>
+
+If using `npm`, the bundled babel is hoisted automatically.
+
+If using `pnpm`, either add the following to your `.npmrc` to hoist the prettier bundled with the config
 
 ```
-npm install -save-dev "@babel/core"
-npm install -save-dev "@babel/cli"
+public-hoist-pattern[]=*
 ```
+
+Or install these yourself in your `devDependencies`.
+
+```
+pnpm install -save-dev "@babel/core"
+pnpm install -save-dev "@babel/cli"
+```
+
+</details>
 
 ## Usage
 
-Create a `babel.config.js` file at the root of the project with the following content:
+Create a `babel.config.json` file at the root of the project with the following content:
+
+```json
+{
+  "presets": ["babel-preset-atomic"],
+  "plugins": [],
+  "exclude": "node_modules/**",
+  "sourceMap": "inline"
+}
+```
+
+Use `babel.config.js` if you need more control over the config.
+
+<details>
+<summary>babel.config.js version</summary>
 
 ```js
 let presets = ["babel-preset-atomic"]
@@ -32,6 +59,8 @@ module.exports = {
 }
 ```
 
+</details>
+
 ## Options
 
 1. `keepModules`
@@ -45,6 +74,22 @@ cross-env BABEL_KEEP_MODULES=true
 To permanently set this option, you can add it to your babel config (which disables environment variable effectiveness):
 
 ```js
+{
+  "presets": [
+    [
+      "babel-preset-atomic",
+      {
+        "keepModules": true,
+      },
+    ],
+  ]
+}
+```
+
+<details>
+<summary>babel.config.js version</summary>
+
+```js
 let presets = [
   [
     "babel-preset-atomic",
@@ -55,9 +100,29 @@ let presets = [
 ]
 ```
 
+</details>
+
 2. `targets`
 
 To change the target of `preset-env` plugin. By default this is configured for Electron.
+
+```json
+{
+  "presets": [
+    [
+      "babel-preset-atomic",
+      {
+        "targets": {
+          "electron": 9
+        }
+      }
+    ]
+  ]
+}
+```
+
+<details>
+<summary>babel.config.js version</summary>
 
 ```js
 let presets = [
@@ -72,9 +137,27 @@ let presets = [
 ]
 ```
 
+</details>
+
 3. `addModuleExports`:
 
 Allows to `require` a ES6 module that has exported a single thing as `default`, in a ES5 fashion without `require().default`. This is `true` by default for backward compatibility with Atom packages.
+
+```json
+{
+  "presets": [
+    [
+      "babel-preset-atomic",
+      {
+        "addModuleExports": false
+      }
+    ]
+  ]
+}
+```
+
+<details>
+<summary>babel.config.js version</summary>
 
 ```js
 let presets = [
@@ -87,7 +170,26 @@ let presets = [
 ]
 ```
 
+</details>
+
 4. `addModuleExportsDefaultProperty`:
+
+```json
+{
+  "presets": [
+    [
+      "babel-preset-atomic",
+      {
+        "addModuleExports": true,
+        "addModuleExportsDefaultProperty": true
+      }
+    ]
+  ]
+}
+```
+
+<details>
+<summary>babel.config.js version</summary>
 
 ```js
 let presets = [
@@ -100,6 +202,8 @@ let presets = [
   ],
 ]
 ```
+
+</details>
 
 Adds `default` property to `module.exports` so the ES6 module can be required in the ES6 fashion as well (by `require().default`). This is `false` by default.
 
