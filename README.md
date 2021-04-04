@@ -8,12 +8,25 @@ This includes the babel configuration used for JavaScript packages in atom-ide-c
 npm install --save-dev babel-preset-atomic
 ```
 
-You should also install the peer dependencies:
+<details>
+<summary> This package also needs `@babel/core` and/or `@babel/cli`. </summary>
+
+Either add the following to your `.npmrc` if using `pnpm` to hoist the prettier bundled with the config
 
 ```
-npm install -save-dev "@babel/core"
-npm install -save-dev "@babel/cli"
+public-hoist-pattern[]=*
 ```
+
+Or install these yourself in your `devDependencies`.
+
+```
+pnpm install -save-dev "@babel/core"
+pnpm install -save-dev "@babel/cli"
+```
+
+If using `npm`, the prettier dependency is hoisted automatically.
+
+</details>
 
 ## Usage
 
