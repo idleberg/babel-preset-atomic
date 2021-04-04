@@ -11,7 +11,9 @@ npm install --save-dev babel-preset-atomic
 <details>
 <summary> This package also needs `@babel/core` and/or `@babel/cli`. </summary>
 
-Either add the following to your `.npmrc` if using `pnpm` to hoist the prettier bundled with the config
+If using `npm`, the bundled babel is hoisted automatically.
+
+If using `pnpm`, either add the following to your `.npmrc` to hoist the prettier bundled with the config
 
 ```
 public-hoist-pattern[]=*
@@ -23,8 +25,6 @@ Or install these yourself in your `devDependencies`.
 pnpm install -save-dev "@babel/core"
 pnpm install -save-dev "@babel/cli"
 ```
-
-If using `npm`, the prettier dependency is hoisted automatically.
 
 </details>
 
@@ -60,7 +60,6 @@ module.exports = {
 ```
 
 </details>
-
 
 ## Options
 
@@ -103,7 +102,6 @@ let presets = [
 
 </details>
 
-
 2. `targets`
 
 To change the target of `preset-env` plugin. By default this is configured for Electron.
@@ -111,15 +109,15 @@ To change the target of `preset-env` plugin. By default this is configured for E
 ```json
 {
   "presets": [
-   [
-     "babel-preset-atomic",
-     {
-       "targets": {
-         "electron": 9,
-       },
-     },
-   ],
- ]
+    [
+      "babel-preset-atomic",
+      {
+        "targets": {
+          "electron": 9
+        }
+      }
+    ]
+  ]
 }
 ```
 
@@ -151,9 +149,9 @@ Allows to `require` a ES6 module that has exported a single thing as `default`, 
     [
       "babel-preset-atomic",
       {
-        "addModuleExports": false,
-      },
-    ],
+        "addModuleExports": false
+      }
+    ]
   ]
 }
 ```
@@ -183,9 +181,9 @@ let presets = [
       "babel-preset-atomic",
       {
         "addModuleExports": true,
-        "addModuleExportsDefaultProperty": true,
-      },
-    ],
+        "addModuleExportsDefaultProperty": true
+      }
+    ]
   ]
 }
 ```
