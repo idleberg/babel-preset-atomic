@@ -76,6 +76,7 @@ function handleOptions(options) {
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 module.exports = (api, options, dirname) => {
   const {
     targets,
