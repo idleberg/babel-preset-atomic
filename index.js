@@ -19,46 +19,46 @@ function handleOptions(options) {
   } = options
 
   // use Electron 6 targets by default
-  if (targets == null) {
+  if (targets === undefined) {
     targets = {
       electron: 6,
     }
   }
 
   // if not provided in the options, use the environment variable
-  if (keepModules == null) {
+  if (keepModules === undefined) {
     keepModules = keepModulesEnv
   }
 
   // add module exports by default
-  if (addModuleExports == null) {
+  if (addModuleExports === undefined) {
     addModuleExports = true
   }
 
   // do not add default property by default
-  if (addModuleExportsDefaultProperty == null) {
+  if (addModuleExportsDefaultProperty === undefined) {
     addModuleExportsDefaultProperty = false
   }
 
-  if (react == null) {
+  if (react === undefined) {
     react = true
   }
 
-  if (flow == null) {
+  if (flow === undefined) {
     flow = true
   }
 
-  if (typescript == null) {
+  if (typescript === undefined) {
     typescript = true
   }
 
-  if (removeAllUseStrict == null) {
+  if (removeAllUseStrict === undefined) {
     removeAllUseStrict = false
   }
-  if (notStrictDirectiveTriggers == null) {
+  if (notStrictDirectiveTriggers === undefined) {
     notStrictDirectiveTriggers = ["use babel"]
   }
-  if (notStrictCommentTriggers == null) {
+  if (notStrictCommentTriggers === undefined) {
     notStrictCommentTriggers = ["@babel", "@flow", "* @babel", "* @flow"]
   }
 
