@@ -90,11 +90,11 @@ module.exports = (api, options, dirname) => {
     notStrictCommentTriggers,
   } = handleOptions(options)
 
-  let presets = [
+  const presets = [
     [
       require("@babel/preset-env"),
       {
-        targets: targets,
+        targets,
         modules: keepModules ? false : "commonjs",
       },
     ],
@@ -115,7 +115,7 @@ module.exports = (api, options, dirname) => {
     presets.push(typeof typescript === "object" ? [presetTypeScript, typescript] : presetTypeScript)
   }
 
-  let plugins = [
+  const plugins = [
     require("@babel/plugin-proposal-function-bind"),
 
     require("@babel/plugin-proposal-export-default-from"),
@@ -170,7 +170,7 @@ module.exports = (api, options, dirname) => {
   }
 
   return {
-    presets: presets,
-    plugins: plugins,
+    presets,
+    plugins,
   }
 }
