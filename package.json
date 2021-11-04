@@ -1,24 +1,20 @@
 {
   "name": "babel-preset-atomic",
-  "main": "index.js",
   "version": "4.2.1",
+  "description": "babel configuration used in atom-ide-community",
+  "repository": "https://github.com/atom-ide-community/babel",
+  "license": "MIT",
+  "author": "Amin Yahyaabadi",
+  "main": "index.js",
   "files": [
     "./index.js"
   ],
-  "author": "Amin Yahyaabadi",
-  "description": "babel configuration used in atom-ide-community",
-  "keywords": [
-    "babel",
-    "babel-preset"
-  ],
-  "repository": "https://github.com/atom-ide-community/babel",
-  "license": "MIT",
   "scripts": {
+    "bump": "ncu -u",
     "format": "prettier --write .",
-    "test.format": "prettier . --check",
     "lint": "eslint . --fix",
-    "test.lint": "eslint .",
-    "bump": "ncu -u"
+    "test.format": "prettier . --check",
+    "test.lint": "eslint ."
   },
   "prettier": "prettier-config-atomic",
   "dependencies": {
@@ -52,15 +48,19 @@
     "babel-plugin-preval": "^5.0.0",
     "babel-plugin-transform-not-strict": "^0.3.1"
   },
-  "peerDependencies": {
-    "@babel/cli": "^7",
-    "@babel/core": "^7"
-  },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
     "eslint-config-atomic": "^1.16.4",
     "npm-check-updates": "11.8.5",
     "prettier-config-atomic": "^3.0.1"
-  }
+  },
+  "peerDependencies": {
+    "@babel/cli": "^7",
+    "@babel/core": "^7"
+  },
+  "keywords": [
+    "babel",
+    "babel-preset"
+  ]
 }
