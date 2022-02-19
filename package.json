@@ -52,7 +52,7 @@
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
     "eslint-config-atomic": "^1.16.6",
-    "npm-check-updates": "12.3.0",
+    "npm-check-updates": "12.3.1",
     "prettier-config-atomic": "^3.0.1"
   },
   "peerDependencies": {
