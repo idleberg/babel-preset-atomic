@@ -34,7 +34,7 @@ importers:
       babel-plugin-preval: ^5.0.0
       babel-plugin-transform-not-strict: ^0.3.1
       eslint-config-atomic: ^1.16.6
-      npm-check-updates: 12.3.1
+      npm-check-updates: 12.4.0
       prettier-config-atomic: ^3.0.1
     dependencies:
       '@babel/cli': 7.13.14_@babel+core@7.13.14
@@ -68,7 +68,7 @@ importers:
       babel-plugin-transform-not-strict: 0.3.1_@babel+core@7.13.14
     devDependencies:
       eslint-config-atomic: 1.16.6
-      npm-check-updates: 12.3.1
+      npm-check-updates: 12.4.0
       prettier-config-atomic: 3.0.1
 
 packages:
@@ -2791,7 +2791,7 @@ packages:
       import-fresh: 3.2.1
       parse-json: 5.1.0
       path-type: 4.0.0
-      yaml: 1.10.0
+      yaml: 1.10.2
     dev: false
 
   /cosmiconfig/7.0.0:
@@ -5094,8 +5094,8 @@ packages:
       npm-normalize-package-bin: 1.0.1
     dev: true
 
-  /npm-check-updates/12.3.1:
-    resolution: {integrity: sha512-rvXyiUnc9zw3WXakqv0LsdFDc1V4T8DHG8AdWEjJiqfOZdBI4q8ekTt/BFqLQAtcXo5Pu6WGqjA9oDnFi4UV3g==}
+  /npm-check-updates/12.4.0:
+    resolution: {integrity: sha512-X14H74M8SVFkStmP1NDOMh0OjLB3mU2dwUeM71zyITJHkm08MASwwTcydW6YuGcNW1RUlVq1cQY2yWijv4zKUQ==}
     engines: {node: '>=12'}
     hasBin: true
     dependencies:
@@ -6658,11 +6658,6 @@ packages:
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
     dev: true
-
-  /yaml/1.10.0:
-    resolution: {integrity: sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==}
-    engines: {node: '>= 6'}
-    dev: false
 
   /yaml/1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
