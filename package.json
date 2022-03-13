@@ -21,7 +21,7 @@
     "@babel/cli": "^7",
     "@babel/core": "^7",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
-    "@babel/plugin-proposal-decorators": "^7.16.7",
+    "@babel/plugin-proposal-decorators": "^7.17.2",
     "@babel/plugin-proposal-do-expressions": "7.16.7",
     "@babel/plugin-proposal-export-default-from": "7.16.7",
     "@babel/plugin-proposal-export-namespace-from": "7.16.7",
@@ -32,7 +32,7 @@
     "@babel/plugin-proposal-nullish-coalescing-operator": "7.16.7",
     "@babel/plugin-proposal-numeric-separator": "7.16.7",
     "@babel/plugin-proposal-optional-chaining": "7.16.7",
-    "@babel/plugin-proposal-pipeline-operator": "7.16.7",
+    "@babel/plugin-proposal-pipeline-operator": "7.17.6",
     "@babel/plugin-proposal-private-methods": "7.16.11",
     "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
     "@babel/plugin-proposal-throw-expressions": "7.16.7",
@@ -46,15 +46,15 @@
     "@babel/preset-typescript": "^7.16.7",
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-plugin-codegen": "^4.1.5",
-    "babel-plugin-preval": "^5.0.0",
+    "babel-plugin-preval": "^5.1.0",
     "babel-plugin-transform-not-strict": "^0.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
-    "eslint-config-atomic": "^1.16.6",
+    "eslint-config-atomic": "^1.17.0",
     "npm-check-updates": "12.5.3",
-    "prettier-config-atomic": "^3.0.1"
+    "prettier-config-atomic": "^3.0.6"
   },
   "peerDependencies": {
     "@babel/cli": "^7",
