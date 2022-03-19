@@ -35,7 +35,7 @@ importers:
       babel-plugin-preval: ^5.1.0
       babel-plugin-transform-not-strict: ^0.3.1
       eslint-config-atomic: ^1.17.0
-      npm-check-updates: 12.5.3
+      npm-check-updates: 12.5.4
       prettier-config-atomic: ^3.0.6
     dependencies:
       '@babel/cli': 7.13.14_@babel+core@7.13.14
@@ -70,7 +70,7 @@ importers:
       babel-plugin-transform-not-strict: 0.3.1_@babel+core@7.13.14
     devDependencies:
       eslint-config-atomic: 1.17.0
-      npm-check-updates: 12.5.3
+      npm-check-updates: 12.5.4
       prettier-config-atomic: 3.0.6
 
 packages:
@@ -5098,8 +5098,8 @@ packages:
       npm-normalize-package-bin: 1.0.1
     dev: true
 
-  /npm-check-updates/12.5.3:
-    resolution: {integrity: sha512-siFg/+Un+j4tLA6GJCnk6hz2YU4Yc5bftDnOoiSRLKL6NeAS3FScB32mtKNBtITMJf2nsoZSr8vH+wdUGeP19g==}
+  /npm-check-updates/12.5.4:
+    resolution: {integrity: sha512-4+27zaTdieWgvPLaCZ/A6Q2WC1cYVcrc2SqVmLFYgkWBrKw1QkwpeV16FSvkFGZr3OdFyr7Dpjw8JRn4H2QxFw==}
     engines: {node: '>=12'}
     hasBin: true
     dependencies:
