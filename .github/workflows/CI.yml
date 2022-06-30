@@ -1,7 +1,9 @@
 name: CI
 on:
-  - push
-  - pull_request
+  pull_request:
+  push:
+    branches:
+      - master
 
 defaults:
   run:
@@ -21,15 +23,20 @@ jobs:
           # - windows-latest
         atom_channel: [stable, beta]
     steps:
-      - uses: actions/checkout@v3
-      - uses: UziTech/action-setup-atom@v1
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
-          channel: ${{ matrix.atom_channel }}
-      - name: Versions
-        run: apm -v
-      - name: Install APM dependencies
+          node-version: 12
+          architecture: x64
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6
+
+      - name: Install and build
         run: |
-          apm install
+          pnpm install
 
   Lint:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
