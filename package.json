@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-atomic",
-  "version": "4.3.0",
+  "version": "4.4.0",
   "description": "babel configuration used in atom-ide-community",
   "homepage": "https://github.com/atom-ide-community/babel",
   "repository": "https://github.com/atom-ide-community/babel",
@@ -8,8 +8,8 @@
   "author": "Amin Yahyaabadi",
   "main": "./dist/index.js",
   "files": [
-    "./dist/",
-    "./src/"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "tsc -p ./src/tsconfig.json",
@@ -56,12 +56,14 @@
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
-    "@types/babel__core": "^7.1.19",
-    "@types/babel__preset-env": "7.9.2",
     "eslint-config-atomic": "^1.18.1",
     "npm-check-updates": "14.1.1",
     "prettier-config-atomic": "^3.0.10",
     "typescript": "^4.7.4"
+  },
+  "optionalDependencies": {
+    "@types/babel__core": "^7.1.19",
+    "@types/babel__preset-env": "7.9.2"
   },
   "peerDependencies": {
     "@babel/cli": "^7",
