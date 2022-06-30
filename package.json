@@ -56,6 +56,8 @@
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
+    "@types/babel__core": "^7.1.19",
+    "@types/babel__preset-env": "7.9.2",
     "eslint-config-atomic": "^1.18.1",
     "npm-check-updates": "14.1.1",
     "prettier-config-atomic": "^3.0.10",

@@ -1,10 +1,25 @@
+import type { ConfigAPI, PluginItem, TransformOptions } from "@babel/core"
+
 let keepModulesEnv = false // false by default
 
 if (process.env.BABEL_KEEP_MODULES === "true") {
   keepModulesEnv = true
 }
 
-function handleOptions(options) {
+export type Options = {
+  targets?: typeof import("babel__preset-env")
+  keepModules?: boolean
+  addModuleExports?: boolean
+  addModuleExportsDefaultProperty?: boolean
+  react?: boolean | Record<string, any>
+  flow?: boolean | Record<string, any>
+  typescript?: boolean | Record<string, any>
+  removeAllUseStrict?: boolean
+  notStrictDirectiveTriggers?: string[]
+  notStrictCommentTriggers?: string[]
+}
+
+function handleOptions(options: Options) {
   let {
     targets,
     keepModules,
@@ -77,7 +92,7 @@ function handleOptions(options) {
 }
 
 // eslint-disable-next-line no-unused-vars
-module.exports = (api, options, dirname) => {
+module.exports = (_api: ConfigAPI, options: Options, _dirname: string): TransformOptions => {
   const {
     targets,
     keepModules,
@@ -93,25 +108,25 @@ module.exports = (api, options, dirname) => {
 
   const presets = [
     [
-      require("@babel/preset-env"),
+      require("@babel/preset-env") as typeof import("babel__preset-env"),
       {
         targets,
         modules: keepModules ? false : "commonjs",
       },
     ],
-  ]
+  ] as PluginItem[]
 
-  if (react) {
+  if (react !== false) {
     const presetReact = require("@babel/preset-react")
     presets.push(typeof react === "object" ? [presetReact, react] : presetReact)
   }
 
-  if (flow) {
+  if (flow !== false) {
     const presetFlow = require("@babel/preset-flow")
     presets.push(typeof flow === "object" ? [presetFlow, flow] : presetFlow)
   }
 
-  if (typescript) {
+  if (typescript !== false) {
     const presetTypeScript = require("@babel/preset-typescript")
     presets.push(typeof typescript === "object" ? [presetTypeScript, typescript] : presetTypeScript)
   }
@@ -154,7 +169,7 @@ module.exports = (api, options, dirname) => {
 
     // reserved keywords
     require("@babel/plugin-transform-reserved-words"),
-  ]
+  ] as PluginItem[]
 
   // transform modules (e.g when without Rollup)
   if (!keepModules) {
