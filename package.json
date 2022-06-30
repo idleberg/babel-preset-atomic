@@ -6,14 +6,17 @@
   "repository": "https://github.com/atom-ide-community/babel",
   "license": "MIT",
   "author": "Amin Yahyaabadi",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "files": [
-    "./src/index.js"
+    "./dist/",
+    "./src/"
   ],
   "scripts": {
+    "build": "tsc -p ./src/tsconfig.json",
     "bump": "ncu -u",
     "format": "prettier --write .",
     "lint": "eslint . --fix",
+    "prepare": "npm run build",
     "test.format": "prettier . --check",
     "test.lint": "eslint ."
   },
@@ -55,7 +58,8 @@
     "@babel/core": "^7.13.14",
     "eslint-config-atomic": "^1.18.1",
     "npm-check-updates": "14.1.1",
-    "prettier-config-atomic": "^3.0.10"
+    "prettier-config-atomic": "^3.0.10",
+    "typescript": "^4.7.4"
   },
   "peerDependencies": {
     "@babel/cli": "^7",
