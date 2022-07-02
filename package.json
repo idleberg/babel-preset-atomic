@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-atomic",
-  "version": "4.4.0",
+  "version": "5.0.0",
   "description": "babel configuration used in atom-ide-community",
   "homepage": "https://github.com/atom-ide-community/babel",
   "repository": "https://github.com/atom-ide-community/babel",
