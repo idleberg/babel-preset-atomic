@@ -33,10 +33,10 @@ function handleOptions(options: Options) {
     notStrictCommentTriggers,
   } = options
 
-  // use Electron 6 targets by default
+  // use Electron 11 targets by default
   if (targets === undefined) {
     targets = {
-      electron: 6,
+      electron: 11,
     }
   }
 
