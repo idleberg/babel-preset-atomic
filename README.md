@@ -104,7 +104,7 @@ let presets = [
 
 2. `targets`
 
-To change the target of `preset-env` plugin. By default this is configured for Electron.
+To change the target of `preset-env` plugin. By default this is configured for Electron 11.
 
 ```json
 {
