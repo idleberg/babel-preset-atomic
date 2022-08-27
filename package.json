@@ -57,7 +57,7 @@
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
     "eslint-config-atomic": "^1.18.1",
-    "npm-check-updates": "16.0.5",
+    "npm-check-updates": "16.0.6",
     "prettier-config-atomic": "^3.0.10",
     "typescript": "^4.7.4"
   },
