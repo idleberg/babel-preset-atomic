@@ -34,7 +34,7 @@ specifiers:
   babel-plugin-preval: ^5.1.0
   babel-plugin-transform-not-strict: ^0.3.1
   eslint-config-atomic: ^1.18.1
-  npm-check-updates: 16.8.0
+  npm-check-updates: 16.9.0
   prettier-config-atomic: ^3.0.10
   typescript: ^5.0.0
 
@@ -76,7 +76,7 @@ optionalDependencies:
 
 devDependencies:
   eslint-config-atomic: 1.18.1
-  npm-check-updates: 16.8.0
+  npm-check-updates: 16.9.0
   prettier-config-atomic: 3.0.10
   typescript: 5.0.2
 
@@ -5672,8 +5672,8 @@ packages:
       npm-normalize-package-bin: 3.0.0
     dev: true
 
-  /npm-check-updates/16.8.0:
-    resolution: {integrity: sha512-2xpFtUPa2OyswC8kpIpxRqQcP/D0uqaBgfiOQAtvGlnDhmHr3QwR2gWjjWtS6xnNvgyyVly/4edY0Uu24c46ew==}
+  /npm-check-updates/16.9.0:
+    resolution: {integrity: sha512-AOAAre4AAPzB5p41E8vbkisx7FypdNCy4mkiF4mMUl6ptOUVkaMGlWVx1eqgmaoraeAnvhyByIGS+4LN7U+XHg==}
     engines: {node: '>=14.14'}
     hasBin: true
     dependencies:
