@@ -67,7 +67,7 @@
   },
   "optionalDependencies": {
     "@types/babel__core": "^7.1.19",
-    "@types/babel__preset-env": "7.9.2"
+    "@types/babel__preset-env": "7.9.7"
   },
   "keywords": [
     "babel",
