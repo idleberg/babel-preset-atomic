@@ -9,7 +9,7 @@ npm install --save-dev babel-preset-atomic
 ```
 
 <details>
-<summary> This package also needs `@babel/core` and/or `@babel/cli`. </summary>
+<summary> This package also needs <code>@babel/core</code> and/or <code>@babel/cli</code>. </summary>
 
 If using `npm`, the bundled babel is hoisted automatically.
 
@@ -44,7 +44,7 @@ Create a `babel.config.json` file at the root of the project with the following 
 Use `babel.config.js` if you need more control over the config.
 
 <details>
-<summary>babel.config.js version</summary>
+<summary><code>babel.config.js</code> version</summary>
 
 ```js
 let presets = ["babel-preset-atomic"]
@@ -87,7 +87,7 @@ To permanently set this option, you can add it to your babel config (which disab
 ```
 
 <details>
-<summary>babel.config.js version</summary>
+<summary><code>babel.config.js</code> version</summary>
 
 ```js
 let presets = [
@@ -122,7 +122,7 @@ To change the target of `preset-env` plugin. By default this is configured for E
 ```
 
 <details>
-<summary>babel.config.js version</summary>
+<summary><code>babel.config.js</code> version</summary>
 
 ```js
 let presets = [
@@ -157,7 +157,7 @@ Allows to `require` a ES6 module that has exported a single thing as `default`, 
 ```
 
 <details>
-<summary>babel.config.js version</summary>
+<summary><code>babel.config.js</code> version</summary>
 
 ```js
 let presets = [
@@ -189,7 +189,7 @@ let presets = [
 ```
 
 <details>
-<summary>babel.config.js version</summary>
+<summary><code>babel.config.js</code> version</summary>
 
 ```js
 let presets = [
